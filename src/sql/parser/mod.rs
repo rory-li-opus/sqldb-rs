@@ -1,4 +1,4 @@
-use crate::{error::Result, sql::parser::ast::Expression};
+use crate::{error::Result};
 use lexer::{Keyword, Lexer, Token};
 use std::iter::Peekable;
 
