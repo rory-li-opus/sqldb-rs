@@ -1,3 +1,4 @@
+use crate::sql::types::DataType;
 // Abstract Syntax Tree
 #[derive(Debug, PartialEq)]
 pub enum Statement {
@@ -13,14 +14,6 @@ pub enum Statement {
     Select {
         table_name: String,
     },
-}
-
-#[derive(Debug, PartialEq, Clone)]
-pub enum DataType {
-    Boolean,
-    Float,
-    Integer,
-    String,
 }
 
 #[derive(Debug, PartialEq)]

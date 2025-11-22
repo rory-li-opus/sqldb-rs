@@ -6,7 +6,8 @@ pub mod ast;
 mod lexer;
 
 use crate::error::Error;
-use ast::{Column, DataType, Statement};
+use ast::{Column, Statement};
+use crate::sql::types::DataType;
 
 pub struct Parser<'a> {
     lexer: Peekable<Lexer<'a>>,
