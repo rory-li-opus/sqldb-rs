@@ -1,5 +1,6 @@
 use planner::Planner;
-
+use crate::sql::executor::Executor;
+use crate::sql::{engine::Transaction, executor::ResultSet};
 use crate::error::Result;
 
 use super::{
@@ -34,9 +35,9 @@ impl Plan {
         Planner::new().build(stmt)
     }
 
-    // pub fn execute<T: Transaction>(self, txn: &mut T) -> Result<ResultSet> {
-    //     <dyn Executor<T>>::build(self.0).execute(txn)
-    // }
+    pub fn execute<T: Transaction>(self, txn: &mut T) -> Result<ResultSet> {
+        <dyn Executor<T>>::build(self.0).execute(txn)
+    }
 }
 
 #[cfg(test)]

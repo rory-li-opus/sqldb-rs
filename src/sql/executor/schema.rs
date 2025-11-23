@@ -1,5 +1,6 @@
 use super::Executor;
 use crate::error::Result;
+use crate::sql::engine::Transaction;
 use crate::sql::schema::Table;
 
 
@@ -13,8 +14,8 @@ impl CreateTable {
     }
 }
 
-impl Executor for CreateTable {
-    fn execute(&self) -> Result<super::ResultSet> {
+impl<T: Transaction> Executor<T> for CreateTable {
+    fn execute(&self, txn: &mut T) -> Result<super::ResultSet> {
         todo!()
     }
 }
